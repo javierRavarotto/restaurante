@@ -1,0 +1,49 @@
+
+      <div class=" row ">
+        <div class="col-md-6">
+          <div class="row justify-content-center">
+            <div class="card col-md-5 platos m-2 bg-dark"*ngFor="let plato of platos">
+              <img [src]="plato.image" class="card-img-top my-2" alt="..." (click)="buscarDatoReceta(plato.id)">
+              <div class="card-body">
+                <p class="card-text text-white" > {{plato.title}}</p>
+                <div class="row">
+                  <button class="btn btn-primary" (click)="agregarPlato(plato)">pedir</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-6 text-center">
+          <h3 class="col-md-12">pedidos <button class="btn btn-danger" (click)="reiniciar()">reiniciar</button></h3>
+          <table class="table table-dark table-hover">
+        
+            <thead>
+              <tr>
+                <th scope="col">Plato</th>
+                <th scope="col">Calorias</th>
+                <th scope="col">precion</th>
+                <th scope="col" >Borrar</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let pedido of pedidos ; let i = index">
+                <td>{{pedido.title}}</td>
+                <td>{{pedido.healthScore}}</td>
+                <td>${{pedido.pricePerServing}}</td>
+                <td><button class=" btm btn-danger" (click)="borrarPlato(pedido,i)">X</button></td>
+              </tr>
+              <tr>
+                <td>Tiempo de espera {{promedio}}</td>
+                <td>Calorias {{calorias}}</td>
+                <td>Total ${{total}}</td>
+                <td></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+
+
+
+      
+
